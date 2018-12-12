@@ -1,0 +1,309 @@
+/*****************************************
+* Variables
+*****************************************/
+$page-header-width: 100% !default;
+$page-header-height: 56px !default;
+$page-header-background: #fff !default;
+$page-header-border-width: 1px !default;
+$page-header-border-color: transparent !default;
+
+$page-footer-width: 100% !default;
+$page-footer-height: auto !default;
+$page-footer-background: #fff !default;
+$page-footer-border-width: 1px !default;
+$page-footer-border-color: transparent !default;
+
+$page-main-width: 100% !default;
+$page-main-height: auto !default;
+$page-main-background: transparent !default;
+$page-main-border-width: 1px !default;
+$page-main-border-color: transparent !default;
+
+$page-left-width: 65px !default; 
+$page-left-height: 100vh !default;
+$page-left-background: #fff !default;
+$page-left-border-width: 1px !default;
+$page-left-border-color: transparent !default;
+
+$page-right-width: 270px !default;
+$page-right-height: 100vh !default;
+$page-right-background: #fff !default;
+$page-right-border-width: 1px !default;
+$page-right-border-color: #dedede !default;
+/*****************************************
+* Main
+*****************************************/
+.page {
+	.page-left {
+		position: fixed;
+		z-index: 2;
+		width: $page-left-width;
+		height: $page-left-height;
+		background: $page-left-background;
+		border-right: $page-left-border-width solid $page-left-border-color;
+	}
+	.page-right {
+		position: fixed;
+		z-index: 2;
+		width: $page-right-width;
+		height: $page-right-height;
+		background: $page-right-background;
+		border-left: $page-right-border-width solid $page-right-border-color;
+	}
+	.page-header {
+		width: $page-header-width;
+		height: $page-header-height;
+		background: $page-header-background;
+		border-bottom: $page-header-border-width solid $page-header-border-color;
+		&.shadowed {
+			box-shadow: 0 1px 1px 1px rgba(18,106,211,.05);
+		}
+		&.light {
+			background: transparent;
+			position: absolute;
+			z-index: 2;
+		}
+		.searchform {
+			border: 1px solid #ced4da;
+			border-radius: 5px;
+			overflow: hidden;
+			input {
+				border: none;
+				text-indent: 0px;
+				padding: 4px 15px;
+			}
+			button {
+				border: none;
+				background: none;
+				padding-right: 10px;
+			}
+		}
+		.navbar {
+			padding: 0.5rem 0;
+			.navbar-brand {
+				padding: 0;
+				margin-right: 20px;
+				img {
+					display: block;
+				} 
+			} 
+			.nav {
+				.nav-link {
+					padding: 0.5rem 1rem !important;
+				}
+				.nav-item {
+					.nav-link {
+						text-transform: uppercase;
+						font-size: 0.857rem;
+						i { 
+							margin-right: 3px;
+						}
+					}
+				}
+				.dropdown-menu {
+					border: none;
+					border-radius: 4px;
+					margin: 0;
+					.dropdown-item {
+						display: block;
+						width: 100%;
+						padding: 0.25rem 1rem;
+						clear: both;
+						font-weight: 600;
+						text-align: inherit;
+						white-space: nowrap;
+						background-color: transparent;
+						border: 0;
+						font-size: 0.8324rem;
+						color: rgba(117,117,117,0.8);
+					}
+					&.neutral {
+						background: transparent;
+					}
+					.widget {
+						min-width: 280px;
+					}
+				}
+				.dropdown-toggle::after {
+					display: none; 
+				}
+				.icon ,.avatar {
+					border-radius: 50%;
+					display: inline-block;
+					line-height: 34px;
+					width: 34px;
+					height: 34px;
+					text-align: center;
+					overflow: hidden;
+					color: #86939e;
+					font-size: 1.131333rem;
+				}
+			}
+			.nav-account {
+				.nav-link {
+					padding: 0rem 0.2rem !important;
+				}
+				.account {
+					margin-left: 0.8rem;
+				}
+			} 
+		}
+	}
+	.page-main
+	{
+		width: $page-main-width;
+		height: $page-main-height;
+		background: $page-main-background;
+	}
+	.page-footer {
+		padding: 2.5rem 0;
+		width: $page-header-width;
+		height: $page-footer-height;
+		background: $page-footer-background;
+		border-top: $page-footer-border-width solid $page-footer-border-color;
+	}
+	&.lefton {
+		background: #fafbfe;
+		.page-left {
+			position: fixed;
+			top: 0 !important;
+			width: $page-left-width;
+			z-index: 5 !important;
+			background-color: #161931;
+			color: #617182;
+			.header {
+				height: $page-header-height;
+				display: block;
+				vertical-align: middle;
+				text-align: center;
+				background-color: #191d38;
+				border-bottom: 1px solid #617182;
+				.icon {
+					i {
+						margin-top: 5px;
+						font-size: 2rem;
+						color: #fff;
+					}
+				}
+
+			}
+			.navbar {
+				padding: 0;
+			}
+			.nav {
+				width: 100%;
+				display: block;
+				.first-level {
+					height: $page-header-height;
+					display: inline;
+					width: 100%;
+					> a {
+						width: 100%;
+						line-height: 1;
+						text-align: center;
+						border-bottom: 1px solid #617182;
+						padding: 0.5rem 0rem;
+						display: block;
+						i {
+							font-size: 2.1rem;
+							padding: 0;
+							margin: 0;
+							line-height: 1;
+							display: block;
+						}
+						label {
+							font-size: 0.732rem;
+							margin: 0;
+						}
+					}
+					> .dropdown-toggle::after {
+						display: none;
+					}
+				}
+			}
+			.subnav {
+				border-top: 1px solid #e1e8ee !important;
+				width: 250px;
+				padding: 0;
+				margin: 0;
+				position: fixed;
+				height: 100vh;
+				left: $page-left-width;
+				top: 0;
+				border-radius: 0;
+				.nav {
+					li {
+						border-bottom: 1px solid #f8f8f8;
+						> a {
+							color: #86939e;
+							font-size: 12px;
+							font-weight: 400;
+							letter-spacing: .4px;
+							padding: 0.55rem 1.45rem;
+							i {
+								margin-right: 10px;
+								color: #000;
+								font-weight: bold;
+							}
+						}
+					}
+				}
+			}
+		}
+		.page-header {
+			position: fixed;
+			z-index: 2;
+			box-shadow: 0 1px 1px 1px rgba(18,106,211,.08);
+			padding-left: $page-left-width !important;
+		}
+		.page-main {
+			padding-top: $page-header-height;
+			padding-left: $page-left-width;
+		}
+		.page-footer {
+			padding-left: $page-left-width;
+		}
+	}
+	&.righton {
+		.page-main {
+			padding-right: $page-right-width !important;
+		}
+		.page-right {
+			position: fixed;
+			top: $page-header-height !important;
+			right: 0;
+			width: $page-right-width;
+			z-index: 1 !important;
+			background-color: #fff;
+			color: #617182;
+		}
+		.page-footer {
+			padding-right: $page-right-width;
+		}
+	}
+	&.fullscreen {
+		width: 100%;
+		height: 100vh;
+	}
+	&.headerless {
+		.page-header {
+			position: absolute;
+			background: transparent;
+			box-shadow: none;
+			z-index:4;
+			.navbar {
+				.nav {
+					.nav-link {
+						text-transform: uppercase;
+						font-size: 0.8567rem;
+						color: rgba(255,255,255,0.65);
+						font-weight: 600;
+					}
+				}
+			}
+		}
+	}
+}
+/*****************************************
+* Responsive
+*****************************************/

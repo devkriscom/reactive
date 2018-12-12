@@ -1,0 +1,8 @@
+services:
+  controller:
+    - Frontend\Controllers\HomeController
+terminals:
+  controller:
+    - Frontend\Terminal
+
+

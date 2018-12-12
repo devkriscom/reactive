@@ -1,0 +1,154 @@
+@import "~styles/variables";
+@import "~styles/function";
+
+/*****************************************
+* Variables
+*****************************************/
+$navbar-color:                        #333 !default;
+$navbar-hover-color:                  #333 !default;
+$navbar-active-color:                 #333 !default;
+$navbar-disabled-color:               #333 !default;
+$navbar-height:                       55px !default;
+$navbar-bg:                           #fff !default;
+$navbar-brand-width:                  155px !default;
+$navbar-brand-bg:                     transparent !default;
+$navbar-toggler-padding-y:			  15px !default;
+$navbar-toggler-icon:                 str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$navbar-toggler-icon-hover:           str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$navbar-brand-width:                  155px !default;
+$navbar-brand-bg:                     transparent !default;
+$navbar-brand-border:                 0 !default;
+
+$navbar-brand-minimized-width:        50px !default;
+$navbar-brand-minimized-bg:           $navbar-brand-bg !default;
+$navbar-brand-minimized-border:       $navbar-brand-border !default;
+/*****************************************
+* Main
+*****************************************/
+.app-header {
+	position: relative;
+	flex-direction: row;
+	height: $navbar-height;
+	padding: 0;
+	margin: 0;
+	background-color: $navbar-bg;
+
+	.navbar-brand {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: $navbar-brand-width;
+		height: $navbar-height;
+		padding: 0;
+		margin-right: 0;
+		background-color: $navbar-brand-bg;
+		.navbar-brand-minimized {
+			display: none;
+		}
+	}
+
+	.navbar-toggler {
+		min-width: 50px;
+		padding: $navbar-toggler-padding-y 0;
+		color: #333;
+		&:hover .navbar-toggler-icon {
+			background-image: $navbar-toggler-icon-hover;
+		}
+	}
+
+	.navbar-toggler-icon {
+		height: 23px;
+		background-image: $navbar-toggler-icon;
+	}
+
+	.navbar-nav {
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.nav-item {
+		position: relative;
+		min-width: 50px;
+		margin: 0;
+		text-align: center;
+
+		button {
+			margin: 0 auto;
+		}
+
+		.nav-link {
+			padding-top: 0;
+			padding-bottom: 0;
+			background: 0;
+			border: 0;
+
+			.badge {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -16px;
+				margin-left: 0;
+			}
+
+			> .img-avatar {
+				height: $navbar-height - 20px;
+				margin: 0 10px;
+			}
+		}
+	}
+
+	.dropdown-menu {
+		padding-bottom: 0;
+	}
+
+	.dropdown-item {
+		min-width: 180px;
+	}
+}
+
+
+.navbar-nav {
+	.nav-link {
+		color: $navbar-color;
+	}
+}
+
+.navbar-divider {
+	background-color: rgba(0, 0, 0, .075);
+}
+
+/*****************************************
+* Responsive
+*****************************************/
+@media (min-width: 576px) {
+
+}
+
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+	.brand-minimized {
+		.app-header {
+			.navbar-brand {
+				width: $navbar-brand-minimized-width;
+				background-color: $navbar-brand-minimized-bg;
+
+				.navbar-brand-full {
+					display: none;
+				}
+
+				.navbar-brand-minimized {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+
+}
+

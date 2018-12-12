@@ -1,0 +1,39 @@
+@import "~styles/variables";
+/*****************************************
+* Variables
+*****************************************/
+$footer-height:                       50px !default;
+$footer-bg:                           #333 !default;
+$footer-color:                        #fff !default;
+/*****************************************
+* Main
+*****************************************/
+.app-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 20px;
+  color: $footer-color;
+  background: $footer-bg;
+}
+
+/*****************************************
+* Responsive
+*****************************************/
+@media (min-width: 576px) {
+
+}
+
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}
+

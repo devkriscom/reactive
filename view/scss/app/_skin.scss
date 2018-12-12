@@ -1,0 +1,109 @@
+/*****************************************
+* Skin
+*****************************************/
+@include skin('main', linear-gradient(-45deg, #667eea 0%, #764ba2 100%), #ffffff) {
+	
+}
+@include skin('one', linear-gradient(-45deg, #667eea 0%, #764ba2 100%), #ffffff) {
+	
+}
+@include skin('two', linear-gradient(-45deg, #667eea 0%, #764ba2 100%), #ffffff) {
+	
+}
+@include skin('three', linear-gradient(-45deg, #667eea 0%, #764ba2 100%), #ffffff) {
+	
+}
+@include skin('four', linear-gradient(-45deg, #667eea 0%, #764ba2 100%), #ffffff) {
+	
+}
+@include skin('five', linear-gradient(-45deg, #667eea 0%, #764ba2 100%), #ffffff) {
+	
+}
+@include skin('six', linear-gradient(-45deg, #667eea 0%, #764ba2 100%), #ffffff) {
+	
+}
+@include skin('seven', linear-gradient(-45deg, #667eea 0%, #764ba2 100%), #ffffff) {
+	
+}
+@include skin('eight', linear-gradient(-45deg, #667eea 0%, #764ba2 100%), #ffffff) {
+	
+}
+@include skin('nine', linear-gradient(-45deg, #667eea 0%, #764ba2 100%), #ffffff) {
+	
+}
+@include skin('ten', linear-gradient(-45deg, #667eea 0%, #764ba2 100%), #ffffff) {
+	
+}
+
+/*****************************************
+* Brand
+*****************************************/
+@include brand('facebook', #3b5998, #ffffff);
+@include brand('twitter', #1da1f2, #ffffff);
+@include brand('youtube', #ff0000, #ffffff);
+@include brand('instagrammagenta', #c32aa3, #ffffff);
+@include brand('instagramblue', #4c5fd7, #ffffff);
+@include brand('instagrampurple', #7232bd, #ffffff);
+@include brand('instagramorange', #f46f30, #ffffff);
+@include brand('instagramyellow', #ffdc7d, #ffffff);
+@include brand('googleblue', #4285f4, #ffffff);
+@include brand('googlered', #ea4335, #ffffff); 
+@include brand('googleyellow', #fbbc05, #ffffff); 
+@include brand('googlegreen', #34a853, #ffffff);
+@include brand('pinterest', #bd081c, #ffffff);
+@include brand('googleplus', #db4437, #ffffff);
+@include brand('linkedin', #007bb5, #ffffff);
+@include brand('vimeoblue', #1ab7ea, #ffffff);
+@include brand('tumblr', #2c4762, #ffffff);
+@include brand('snapchat', #fffc00, #ffffff);
+@include brand('whatsappgreen', #25d366, #ffffff);
+@include brand('whatsappteal1', #075e54, #ffffff);
+@include brand('whatsappteal2', #128c7e, #ffffff);
+@include brand('mastodon', #2b90d9, #ffffff);
+@include brand('apple', #a6b1b7, #ffffff);
+@include brand('amazon', #ff9900, #ffffff);
+@include brand('microsoftred', #f35022, #ffffff);
+@include brand('microsoftgreen', #80bb03, #ffffff);
+@include brand('microsoftblue', #03a5f0, #ffffff);
+@include brand('microsoftyellow', #ffb903, #ffffff);
+@include brand('periscope', #40a4c4, #ffffff);
+@include brand('foursquarepink', #f94877, #ffffff); 
+@include brand('foursquarenavy', #073282, #ffffff);
+@include brand('foursquareblue', #2d5be3, #ffffff);
+@include brand('swarm', #ffa633, #ffffff);
+@include brand('medium', #02b875, #ffffff);
+@include brand('skypeblue', #00aff0, #ffffff);
+@include brand('skypedkblue', #0078d7, #ffffff);
+@include brand('android', #a4c639, #ffffff);
+@include brand('twitch', #6441a4, #ffffff);
+@include brand('stumbleupon', #e94826, #ffffff);
+@include brand('flickrpink', #f40083, #ffffff);
+@include brand('flickrblue', #006add, #ffffff);
+@include brand('yahoo', #430297, #ffffff);
+@include brand('soundcloud', #ff5500, #ffffff);
+@include brand('spotifygreen', #1ed760, #ffffff);
+@include brand('spotifydarkgreen', #1db954, #ffffff);
+@include brand('dribbble', #ea4c89, #ffffff);
+@include brand('slackpurple', #4d394b, #ffffff); 
+@include brand('slackskyblue', #70cadb, #ffffff); 
+@include brand('slackmosss', #3eb890, #ffffff); 
+@include brand('slackpink', #e01765, #ffffff); 
+@include brand('slackyellow', #e8a723, #ffffff); 
+@include brand('slackgreenblue', #1a937d, #ffffff);
+@include brand('slackviolet', #472a49, #ffffff); 
+@include brand('slackolive', #65863a, #ffffff); 
+@include brand('slackred', #cc2027, #ffffff); 
+@include brand('reddit', #ff5700, #ffffff);
+@include brand('deviantart', #05cc47, #ffffff);
+@include brand('pocket', #ee4056, #ffffff);
+@include brand('quora', #aa2200, #ffffff);
+@include brand('quorablue', #2b6dad, #ffffff);
+@include brand('slideshareorange', #e68523, #ffffff);
+@include brand('slideshareblue', #00a0dc, #ffffff);
+@include brand('fivehundredpx', #0099e5, #ffffff);
+@include brand('vk', #4a76a8, #ffffff);
+@include brand('listlyorange', #df6d46, #ffffff);
+@include brand('listlyblue', #52b1b3, #ffffff);
+@include brand('vine', #00b489, #ffffff);
+@include brand('steam', #171a21, #ffffff);
+@include brand('discord', #7289da, #ffffff);

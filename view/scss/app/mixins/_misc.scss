@@ -1,0 +1,183 @@
+@mixin brand($name, $background, $color) {
+    .brand-#{$name} {
+        background: $background !important;
+        color: $color !important;
+        &:hover,
+        &:focus {
+            color: $background !important;
+            background: $color !important;
+        }
+        &.colored {
+
+        }
+        &.bordered {
+
+        }
+        &.outline {
+
+        }
+        &.cycling {
+
+        }
+        &.inverse {
+            
+        }
+    }
+}
+
+@mixin background($name, $background) {
+    .bg-#{$name} {
+        background: $background !important;
+    }
+}
+
+@mixin color($name, $color) {
+    .fc-#{$name} {
+        color: $color;
+    }
+}
+
+@mixin fontsize($spaceamounts) {
+    @each $size in $spaceamounts {
+        .fs-#{$size} {
+            font-size: #{$size};
+        }
+    }
+}
+
+@mixin fontweight($spaceamounts) {
+    @each $weight in $spaceamounts {
+        .fw-#{$weight} {
+            font-weight: #{$weight};
+        }
+    }
+}
+
+@mixin widths($spaceamounts) {
+    @each $width in $spaceamounts {
+        .width-#{$width} {
+            width: #{$width};
+        }
+    }
+}
+
+@mixin heights($spaceamounts) {
+    @each $height in $spaceamounts {
+        .height-#{$height} {
+            height: #{$height};
+        }
+    }
+}
+
+@mixin link-colors-important($color) {
+    &:hover,
+    &:focus {
+        color: $color !important;
+    }
+}
+
+
+@mixin btn-colors($color, $percentage, $text-color:#fff) {
+    &,
+    &:hover {
+        background-color: $color;
+        border-color: $color;
+        color: $text-color;
+    }
+
+    &:hover {
+        box-shadow: 0 2px 10px rgba($color, .4);
+    }
+
+    &:focus,
+    &.focus {
+        color: $text-color;
+    }
+
+    &.disabled,
+    &:disabled {
+        background-color: $color;
+        border-color: $color;
+        opacity: 0.5;
+    }
+    &:active,
+    &.active,
+    .show > &.dropdown-toggle {
+        background-color: darken($color, $percentage);
+        border-color: darken($color, $percentage);
+        color: $text-color;
+    }
+
+}
+
+
+@mixin btn-outline($color, $percentage, $text-color:#fff) {
+    color: $color;
+    background-color: transparent;
+
+    @if $color == #fff {
+        border-color: rgba($color, .5);
+    }
+    @else {
+        border-color: $color;
+    }
+
+    &:hover  {
+        color: $text-color;
+        background-color: $color;
+        border-color: $color;
+    }
+
+    &:active,
+    &.active,
+    .show > &.dropdown-toggle {
+        background-color: $color;
+        border-color: $color;
+    }
+
+}
+
+
+
+
+@mixin form-validation-colors($color) {
+    .form-control {
+        border-color: $color;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    .checkbox,
+    .checkbox-inline,
+    .custom-control,
+    .form-control-feedback,
+    .form-control-label,
+    .radio,
+    .radio-inline,
+    &.checkbox label,
+    &.checkbox-inline label,
+    &.radio label,
+    &.radio-inline label {
+        color: $color;
+    }
+}
+
+
+@mixin placeholder-color($color) {
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+    &::-moz-placeholder {
+        color: $color;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+    &:-moz-placeholder { 
+        color: $color;
+    }
+}
+
+
+
+

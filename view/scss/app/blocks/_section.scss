@@ -1,0 +1,68 @@
+/*****************************************
+* Variables
+*****************************************/
+
+/*****************************************
+* Main
+*****************************************/
+.section {
+    position: relative;
+    display: block;
+    &.fullscreen {
+        position: relative;
+        padding-top: 146px;
+        padding-bottom: 90px;
+    }
+    .screen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background: rgba(0, 0, 0, 0.6);
+        .badge {
+            position: absolute;
+            padding: 0.1rem 0.4rem;
+            .btn {
+                font-size: 1.3rem;
+                padding: 0 0 0 0;
+                background: transparent;
+            }
+            &._tl {
+                top: 0px;
+                left: 0px;
+            }
+            &._tr {
+                top: 0px;
+                right: 0px;
+            }
+            &._bl {
+                bottom: 0px;
+                left: 0px;
+            }
+            &._br {
+                bottom: 0px;
+                right: 0px;
+            }
+        }
+    }
+}
+.box {
+    .box-header {
+        margin-bottom: 15px;
+    }
+}
+/*****************************************
+* Responsive
+*****************************************/
+
+.section {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    @include device_max(md) {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+}

@@ -1,0 +1,53 @@
+{
+	"name": "@zerocode/standard",
+	"version": "1.0.0",
+	"description": "Part of bridge library",
+	"private": true,
+	"main": "source/script/app.js",
+	"dependencies": {
+		"@mdi/font": "^2.5.94",
+		"bootstrap": "^4.0.0-alpha.6",
+		"chart.js": "^2.7.1",
+		"jquery": "^3.2.1",
+		"popper.js": "1.14.3",
+		"shufflejs": "^5.2.0",
+		"typed.js": "^2.0.9"
+	},
+	"devDependencies": {
+		"autoprefixer": "^9.1.5",
+		"clean-webpack-plugin": "^0.1.19",
+		"copy-webpack-plugin": "^4.5.3",
+		"css-loader": "^1.0.0",
+		"del": "3.0.0",
+		"extract-loader": "^3.0.0",
+		"extract-text-webpack-plugin": "^3.0.2",
+		"file-loader": "^2.0.0",
+		"merge-stream": "^1.0.1",
+		"mini-css-extract-plugin": "^0.4.4",
+		"node-sass": "^4.9.3",
+		"postcss-loader": "^3.0.0",
+		"run-sequence": "^2.2.1",
+		"sass-loader": "^7.1.0",
+		"style-loader": "^0.23.1",
+		"webpack": "^4.20.2",
+		"webpack-cli": "^3.1.2"
+	},
+	"scripts": {
+		"webpack": "webpack --watch --config script.config.js",
+		"react": "webpack --watch --config react.config.js"
+	},
+	"browserslist": [
+		"Chrome >= 45",
+		"Firefox ESR",
+		"Edge >= 12",
+		"Explorer >= 10",
+		"iOS >= 9",
+		"Safari >= 9",
+		"Android >= 4.4",
+		"Opera >= 30"
+	],
+	"author": "Nusantara",
+	"homepage": "http://zerocode.co",
+	"copyright": "copyright 2018 zerocode.co",
+	"license": "GPL2+"
+}

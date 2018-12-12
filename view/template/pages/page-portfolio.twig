@@ -1,0 +1,116 @@
+{% extends 'layout/publish/main.twig' %}
+{% block content %}
+	<section class="section">
+		<div class="container">
+			<div class="shuffle">
+				<ul class="nav nav-center" data-shuffle="filter">
+					<li class="nav-item">
+						<a class="nav-link active" href="#" data-shuffle="button">All</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" data-shuffle="button" data-group="bag">Bag</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" data-shuffle="button" data-group="box">Box</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" data-shuffle="button" data-group="book">Book</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" data-shuffle="button" data-group="bottle">Bottle</a>
+					</li>
+				</ul>
+				<div class="row items" data-shuffle="list" id="grid">
+
+					<div class="item col-6 col-lg-3" data-shuffle="item" data-groups="bag,box">
+						<a class="portfolio-1" href="#">
+							<img src="http:/thetheme.io/thesaas/assets/img/portfolio/1.jpg" alt="screenshot">
+							<div class="portfolio-detail">
+								<h5>Phone Bag</h5>
+								<p>Bag, Box</p>
+							</div>
+						</a>
+					</div>
+
+
+					<div class="item col-6 col-lg-3" data-shuffle="item" data-groups="book">
+						<a class="portfolio-1" href="#">
+							<img src="http:/thetheme.io/thesaas/assets/img/portfolio/2.jpg" alt="screenshot">
+							<div class="portfolio-detail">
+								<h5>Mockup Book</h5>
+								<p>Book</p>
+							</div>
+						</a>
+					</div>
+
+
+					<div class="item col-6 col-lg-3" data-shuffle="item" data-groups="box">
+						<a class="portfolio-1" href="#">
+							<img src="http:/thetheme.io/thesaas/assets/img/portfolio/3.jpg" alt="screenshot">
+							<div class="portfolio-detail">
+								<h5>T-shirt</h5>
+								<p>Box</p>
+							</div>
+						</a>
+					</div>
+
+
+					<div class="item col-6 col-lg-3" data-shuffle="item" data-groups="bottle">
+						<a class="portfolio-1" href="#">
+							<img src="http:/thetheme.io/thesaas/assets/img/portfolio/4.jpg" alt="screenshot">
+							<div class="portfolio-detail">
+								<h5>Coffee</h5>
+								<p>Bottle</p>
+							</div>
+						</a>
+					</div>
+
+
+					<div class="item col-6 col-lg-3" data-shuffle="item" data-groups="bottle">
+						<a class="portfolio-1" href="#">
+							<img src="http:/thetheme.io/thesaas/assets/img/portfolio/5.jpg" alt="screenshot">
+							<div class="portfolio-detail">
+								<h5>Shampoo</h5>
+								<p>Bottle</p>
+							</div>
+						</a>
+					</div>
+
+
+					<div class="item col-6 col-lg-3" data-shuffle="item" data-groups="bag">
+						<a class="portfolio-1" href="#">
+							<img src="http:/thetheme.io/thesaas/assets/img/portfolio/6.jpg" alt="screenshot">
+							<div class="portfolio-detail">
+								<h5>Paper bag</h5>
+								<p>Bag</p>
+							</div>
+						</a>
+					</div>
+
+
+					<div class="item col-6 col-lg-3" data-shuffle="item" data-groups="bottle">
+						<a class="portfolio-1" href="#">
+							<img src="http:/thetheme.io/thesaas/assets/img/portfolio/7.jpg" alt="screenshot">
+							<div class="portfolio-detail">
+								<h5>Elixir</h5>
+								<p>Bottle</p>
+							</div>
+						</a>
+					</div>
+
+
+					<div class="item col-6 col-lg-3" data-shuffle="item" data-groups="book">
+						<a class="portfolio-1" href="#">
+							<img src="http:/thetheme.io/thesaas/assets/img/portfolio/8.jpg" alt="screenshot">
+							<div class="portfolio-detail">
+								<h5>Magazine</h5>
+								<p>Book</p>
+							</div>
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

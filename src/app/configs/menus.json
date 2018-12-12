@@ -1,0 +1,24 @@
+{
+	"main": [
+		{
+			"id" 	: "home",
+			"path"	: "/",
+			"label"	: "Home"
+		},
+		{
+			"id" 	: "page",
+			"path"	: "/page",
+			"label"	: "Page"
+		},
+		{
+			"id" 	: "blog",
+			"path"	: "/blog",
+			"label"	: "Blog"
+		},
+		{
+			"id" 	: "shop",
+			"path"	: "/shop",
+			"label"	: "shop"
+		}
+	]
+}

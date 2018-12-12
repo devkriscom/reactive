@@ -1,0 +1,365 @@
+body {
+	overflow-x: hidden;
+	padding-right: 0 !important;
+}
+
+*:-moz-full-screen,
+*:-webkit-full-screen,
+*:fullscreen *:-ms-fullscreen {
+	overflow: auto !important;
+} 
+body {
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+.form-control,
+.form-control:focus {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+}
+
+.form-control {
+	box-shadow: none;
+}
+
+.form-control:focus {
+	outline: 0;
+	box-shadow: none;
+}
+
+a,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span {
+	text-shadow: none;
+}
+
+[type=button]:focus,
+a:active,
+a:focus,
+a:visited,
+button::-moz-focus-inner,
+input[type=button]::-moz-focus-inner,
+input[type=file]>input[type=button]::-moz-focus-inner,
+input[type=reset]::-moz-focus-inner,
+input[type=submit]::-moz-focus-inner,
+select::-moz-focus-inner {
+	outline: 0;
+}
+
+.form-control:focus,
+button:focus,
+input,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: none;
+	outline-width: 0;
+	outline-color: transparent;
+	box-shadow: none;
+	outline-style: none;
+}
+
+textarea {
+	resize: none;
+	overflow-x: hidden;
+}
+
+.btn,
+.btn-group.open .dropdown-toggle,
+.btn:active,
+.btn:focus,
+.btn:hover,
+.btn:visited,
+a,
+a:active,
+a:checked,
+a:focus,
+a:hover,
+a:visited,
+body,
+button,
+button:active,
+button:hover,
+button:visited,
+div,
+input,
+input:active,
+input:focus,
+input:hover,
+input:visited,
+select,
+select:active,
+select:focus,
+select:visited,
+textarea,
+textarea:active,
+textarea:focus,
+textarea:hover,
+textarea:visited {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus,
+button,
+button:active,
+button:checked,
+button:focus,
+button:hover,
+button:visited {
+	outline: 0;
+	outline-offset: 0;
+}
+
+.bootstrap-select .dropdown-toggle:focus {
+	outline: 0 !important;
+	outline-offset: 0;
+}
+
+.dropdown-menu>li>a:active,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:visited {
+	outline: 0 !important;
+}
+figure {
+	padding: 0;
+	margin: 0;
+}
+
+.card {
+	width: 100%;
+	padding: 0;
+	max-width: initial;
+}
+
+a:focus,
+input:focus {
+	border-color: transparent;
+	outline: none;
+}
+[class*=" dripicons-"]:before, [class^=dripicons-]:before, [data-icon]:before {
+	position: relative;
+	top: 2px;
+}
+
+:root {
+	--blue: #007bff;
+	--indigo: #6610f2;
+	--purple: #6f42c1;
+	--pink: #e83e8c;
+	--red: #dc3545;
+	--orange: #fd7e14;
+	--yellow: #ffc107;
+	--green: #28a745;
+	--teal: #20c997;
+	--cyan: #17a2b8;
+	--white: #fff;
+	--gray: #6c757d;
+	--gray-dark: #343a40;
+	--primary: #007bff;
+	--secondary: #6c757d;
+	--success: #28a745;
+	--info: #17a2b8;
+	--warning: #ffc107;
+	--danger: #dc3545;
+	--light: #f8f9fa;
+	--dark: #343a40;
+	--breakpoint-xs: 0;
+	--breakpoint-sm: 576px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 992px;
+	--breakpoint-xl: 1200px;
+	--font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	--font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+::selection {
+	background:#1abc9c;
+	color:#fff;
+	text-shadow:none
+}
+::-moz-selection {
+	background:#1abc9c;
+	color:#fff;
+	text-shadow:none
+}
+::-webkit-selection {
+	background:#1abc9c;
+	color:#fff; 
+	text-shadow:none
+}
+:active,:focus {
+	outline:0!important
+}
+html {
+	background: #fafafa;
+}
+body {
+	overflow-x: hidden; 
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	font-size: 15.24322px;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #171717;
+}
+
+.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6 {
+	color:inherit;
+	font-weight:600;
+	letter-spacing:1px;
+	margin: 0 0 0 0;
+}
+.h2,.h3,.h4,.h5,.h6,h2,h3,h4,h5,h6 {
+	font-weight:500
+}
+.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small,h1 small,h2 small,h3 small,h4 small,h5 small,h6 small {
+	font-weight:400
+}
+.h1 strong,.h2 strong,.h3 strong,.h4 strong,.h5 strong,.h6 strong,h1 strong,h2 strong,h3 strong,h4 strong,h5 strong,h6 strong {
+	font-weight:600
+}
+
+.h1,h1 {
+	font-size:2.24285714rem;
+	line-height:1.3
+}
+
+.h2,h2 {
+	font-size:1.95714286rem;
+	line-height:1.1
+}
+
+.h3,h3 {
+	font-size:1.48571429rem;
+	line-height:1.5
+}
+
+.h4,h4 {
+	font-size:1.25714286rem;
+	line-height:1.6
+}
+
+.h5,h5 {
+	font-size:1.23211rem;
+	line-height:1.6
+}
+
+.h6,h6 {
+	font-size:.95714286rem;
+	line-height:2.6
+}
+
+.color-2 {
+	color: #878787;
+}
+p {
+	font-style:normal;
+	font-weight:400;
+	text-transform:none;
+	line-height: 1.5324;
+	letter-spacing:0;
+}
+ol,p,pre,table,ul {
+	margin-bottom: 1rem;
+	&:last-child {
+		
+	}
+}
+
+ul, ol {
+	&.pure {
+		padding: 0;
+		margin: 0;
+		li {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+	}
+	&.horizontal {
+		padding: 0;
+		margin: 0;
+		display: flex;
+		li {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+	}
+}
+ul.bullets {
+	list-style: inside
+}
+ol {
+	list-style-type:upper-roman;
+	list-style-position:inside
+}
+strong {
+	font-weight:600
+}
+light {
+	font-weight:400
+}
+a {
+	color:inherit;
+}
+a:active,a:focus,a:hover {
+	text-decoration:none;
+	outline:0;
+	color:#1abc9c
+}
+img, iframe, embed, video {
+	max-width: 100%;
+}
+
+blockquote {
+	margin: 0 0 0.5rem 0;
+	&.left {
+		margin-right: 20px;
+		text-align: right;
+		margin-left: 0;
+		width: 33%;
+		float: left;
+	}
+	&.right {
+		margin-left: 20px;
+		text-align: left;
+		margin-right: 0;
+		width: 33%;
+		float: right;
+	}
+}
+
+
+@media all and (max-width:767px) {
+	.h1,h1 {
+		font-size:2.35714286rem;
+		line-height:1.36
+	}
+	.h2,h2 {
+		font-size:1.78571429rem;
+		line-height:1.5
+	}
+	.h3,.lead,h3 {
+		font-size:1.3
+	}
+	.h3,h3 {
+		line-height:1.8
+	}
+}

@@ -1,0 +1,13 @@
+name  : frontend
+path  : "__DIR__/../template"
+public: "__DIR__/../public"
+url: '/web'
+assets:
+  scripts:
+    - 'js/main.js'
+    - 'js/reactive_client.js'
+  styles:
+    - 'css/main.css'
+    - 'css/reactive_client.css'
+reactive:
+  serverJS: '__DIR__/../public/js/reactive_server.js'

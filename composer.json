@@ -1,0 +1,32 @@
+{
+	"name": "reactive/frontend",
+	"type": "application",
+	"description": "Microservice application",
+	"keywords": [
+		"merauke", "microservice"
+	],
+	"require": {
+		"php": ">=5.5.9"
+	},
+	"require-dev": {
+
+	},
+	"support": {
+		"issues": "https://github.com/enusantara/merauke/issues",
+		"source": "https://github.com/enusantara/merauke",
+		"docs": "https://enusantara.github.io/merauke/docs/"
+	},
+	"homepage": "http://enusantara.co",
+	"authors": [
+		{
+			"name": "Enusantara",
+			"email": "frontend@enusantara.co"
+		}
+	], 
+	"autoload": {
+		"psr-4": {
+			"Frontend\\": "src"
+		}
+	},
+	"minimum-stability": "dev"
+}

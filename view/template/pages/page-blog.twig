@@ -1,0 +1,25 @@
+{% extends 'layout/publish/main.twig' %}
+{% block content %}
+	<main class="main-content pt-30">
+		<section class="section p-0">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9">
+						{% include 'module/post/feed/classic.twig' %}
+						<hr>
+						{% include 'module/post/feed/classic.twig' %}
+						<hr>
+						{% include 'module/post/feed/classic.twig' %}
+						<hr>
+						{% include 'module/post/feed/classic.twig' %}
+						<hr>
+						{% include 'module/post/feed/classic.twig' %}
+					</div>
+					<div class="col-md-3">
+						{% include 'module/post/widget/sidebar.twig' %}
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+{% endblock %}
