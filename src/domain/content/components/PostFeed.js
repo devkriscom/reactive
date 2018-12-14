@@ -5,26 +5,26 @@ import EditorFeedbackIcon from '@atlaskit/icon/glyph/editor/feedback';
 import './PostFeed.scss';
 
 type Props = {
-  className?: string,
-  category?: string,
-  title: string,
-  content?: string,
-  image?: string,
-  link?: string
+    className?: string,
+    category?: string,
+    title: string,
+    content?: string,
+    image?: string,
+    link?: string
 }
 
 export const PostFeed = ({
-  Tag = 'article',
-  className = 'section fullscreen',
-  category = 'Online Courses',
-  title = 'We relocated our office to a new garage',
-  content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-  image = 'http://thetheme.io/thesaas/assets/img/thumb/1.jpg',
-  link = "#link1"
+    Tag = 'article',
+    className = 'section fullscreen',
+    category = 'Online Courses',
+    title = 'We relocated our office to a new garage',
+    content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+    image = 'http://thetheme.io/thesaas/assets/img/thumb/1.jpg',
+    link = "#link1"
 }: Props) => {
 
   const classes = classNames('post-feed', className);
- 
+
   return(<Fragment>
     <Tag className={classes}>
         <header className="header">
@@ -59,13 +59,13 @@ export const PostFeedMini = ({
   link = "#link1"
 }: Props) => {
   const classes = classNames('post-feed-widget', className);
- 
+
   return(
     <Fragment>
         <a className={classes}>
-              <figure className="thumbnail"><img className="rounded w-65px mr-4" src="http://thetheme.io/thesaas/assets/img/thumb/2.jpg" /></figure>
-              <p className="media-body small-2 lh-4 mb-0">Top 5 brilliant content marketing strategies</p>
-            </a>
-    </Fragment>
-    );
+          <figure className="thumbnail"><img className="rounded w-65px mr-4" src="http://thetheme.io/thesaas/assets/img/thumb/2.jpg" /></figure>
+          <p className="media-body small-2 lh-4 mb-0">Top 5 brilliant content marketing strategies</p>
+      </a>
+      </Fragment>
+      );
 };

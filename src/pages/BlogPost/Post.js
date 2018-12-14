@@ -28,6 +28,26 @@ export class Page extends Component<{}, {}> {
         });
     }
 
+    onCreateComment = (comment) => {
+
+    }
+
+    onCommentUpdate = (comment) => {
+        
+    }
+
+    onCommentDelete = (id) => {
+
+    }
+
+    onCommentLike = (id) => {
+
+    }
+
+    onLoadComments = (args) => {
+        
+    }
+
     render() {
         console.log(this.props);
         
