@@ -1,6 +1,5 @@
 import {
     FETCH_POSTS,
-    FETCH_PAGE_POSTS,
     FILTER_POSTS,
     FETCHED_POSTS,
     FETCH_TOPICS,
@@ -9,53 +8,106 @@ import {
     FETCHED_TAGS,
     FETCH_POST,
     FETCHED_POST,
+    FETCH_RELATABLES,
+    FETCHED_RELATABLES,
     FETCH_COMMENTS,
-    FETCHED_COMMENTS
+    FETCHED_COMMENTS,
+    CREATE_COMMENT,
+    COMMENT_CREATED,
+    UPDATE_COMMENT,
+    COMMENT_UPDATED,
+    DELETE_COMMENT,
+    COMMENT_DELETED,
+    REPLAY_COMMENT,
+    COMMENT_REPLIED,
+    LIKE_COMMENT,
+    COMMENT_LIKED
 } from './constants';
 
-export function fetchPosts(name, args) {
-    return { type: FETCH_POSTS, name: name, ...args };
+export function fetchPosts(position, args) {
+    return { type: FETCH_POSTS, position: position, ...args };
 }
 
-export function fetchPagePosts(name, args) {
-    return { type: FETCH_PAGE_POSTS, name: name, ...args };
+export function fetchPagePosts(position, args) {
+    return { type: FETCH_PAGE_POSTS, position: position, ...args };
 }
 
-export function filterPosts(name, args) {
-    return { type: FILTER_POSTS, name: name, ...args };
+export function filterPosts(position, args) {
+    return { type: FILTER_POSTS, position: position, ...args };
 }
 
-export function fetchedPosts(name, posts) {
-    return { type: FETCHED_POSTS, name: name, posts };
+export function fetchedPosts(position, posts, response) {
+    return { type: FETCHED_POSTS, position: position, posts, response };
 }
 
-export function fetchTopics(name, args) {
-    return { type: FETCH_TOPICS, name: name, ...args };
+export function fetchTopics(position, args) {
+    return { type: FETCH_TOPICS, position: position, ...args };
 }
 
-export function fetchedTopics(name, topics) {
-    return { type: FETCHED_TOPICS, name: name, topics };
+export function fetchedTopics(position, topics, response) {
+    return { type: FETCHED_TOPICS, position: position, topics, response };
 }
 
-export function fetchTags(name, args) {
-    return { type: FETCH_TAGS, name: name, ...args };
+export function fetchTags(position, args) {
+    return { type: FETCH_TAGS, position: position, ...args };
 }
 
-export function fetchedTags(name, tags) {
-    return { type: FETCHED_TAGS, name: name, tags };
-}
-export function fetchPost(name, args) {
-    return { type: FETCH_POST, name: name, ...args };
+export function fetchedTags(position, tags, response) {
+    return { type: FETCHED_TAGS, position: position, tags, response };
 }
 
-export function fetchedPost(name, post) {
-    return { type: FETCHED_POST, name: name, post };
+export function fetchPost(args) {
+    return { type: FETCH_POST, ...args };
 }
 
-export function fetchComments(name, args) {
-    return { type: FETCH_COMMENTS, name: name, ...args };
+export function fetchedPost(post, response) {
+    return { type: FETCHED_POST, post, response};
 }
 
-export function fetchedComments(name, comments) {
-    return { type: FETCHED_COMMENTS, name: name, comments };
+export function fetchRelatables(args) {
+    return { type: FETCH_RELATABLES, ...args };
+}
+
+export function fetchedRelatables(posts, response) {
+    return { type: FETCHED_RELATABLES, posts, response};
+}
+
+export function fetchComments(args) {
+    return { type: FETCH_COMMENTS, ...args };
+}
+
+export function fetchedComments(comments, response) {
+    return { type: FETCHED_COMMENTS, comments, response};
+}
+
+export function createComment(comment) {
+    return { type: CREATE_COMMENT, comment };
+}
+
+export function commentCreated(comment, response) {
+    return { type: COMMENT_CREATED, comment, response};
+}
+
+export function updateComment(comment) {
+    return { type: UPDATE_COMMENT, comment };
+}
+
+export function commentUpdated(comment, response) {
+    return { type: COMMENT_UPDATED, comment, response};
+}
+
+export function deleteComment(comment) {
+    return { type: DELETE_COMMENT, id: comment };
+}
+
+export function commentDeleted(comment, response) {
+    return { type: COMMENT_DELETED, id: comment, response};
+}
+
+export function likeComment(comment) {
+    return { type: LIKE_COMMENT, id: comment };
+}
+
+export function commentLiked(comment, response) {
+    return { type: COMMENT_LIKED, id: comment, response};
 }

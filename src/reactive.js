@@ -11,10 +11,10 @@ const server = (context, props) => {
   return BroswerRender(context, props, routes, popups, drawers)
 };
 
-const static = (context, props) => {
+const staticer = (context, props) => {
   return BroswerRender(context, props, routes, popups, drawers)
 };
 
 Reactive.server(server);
-Reactive.static(static);
+Reactive.static(staticer);
 Reactive.broswer(broswer);

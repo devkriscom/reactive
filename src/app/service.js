@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { createStructuredSelector } from 'reselect';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 import compose from './compose';
 
@@ -39,6 +42,13 @@ export function closeDrawer(drawer) {
         drawer: drawer
     };
 }
+
+export const withConnect = (selectors, dispachers) => {
+
+    return connect(createStructuredSelector(selectors),
+        (dispatch) => bindActionCreators(dispachers, dispatch)
+        );
+};
 
 export const withModal = ({ key, modal, mode = 'compose' }) => (WrappedComponent) => {
 
@@ -103,7 +113,7 @@ export const withDrawer = ({ key, drawer, mode }) => (WrappedComponent) => {
 export const withSaga = ({ key, saga, mode }) => (WrappedComponent) => {
 
     class RegisterSaga extends React.Component {
-        
+
         static WrappedComponent = WrappedComponent;
 
         static displayName = `withSaga(${(WrappedComponent.displayName || WrappedComponent.name || 'Component')})`;
@@ -115,7 +125,7 @@ export const withSaga = ({ key, saga, mode }) => (WrappedComponent) => {
         composers = compose(this.context.store);
 
         componentWillMount() {
-            
+
             const { loadSaga } = this.composers;
 
             loadSaga(key, { saga, mode }, this.props);

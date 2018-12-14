@@ -7,7 +7,7 @@ var common = require('./config.js');
 module.exports = merge(common, {
 	mode: 'production',
 	entry: {
-		'reactive_server': ['@babel/polyfill', path.resolve(__dirname, '../source/reactive.js')]
+		'reactive_server': ['@babel/polyfill', path.resolve(__dirname, '../src/reactive.js')]
 	},
 	node: {
 		fs: 'empty',

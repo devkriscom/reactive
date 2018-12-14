@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import Helmet from 'react-helmet';
-import Campaign1 from 'fragments/campaign-1';
+import Hero from 'components/Block/Hero';
 
 export class Page extends Component {
     render() {
@@ -14,7 +14,7 @@ export class Page extends Component {
             <div className={classNames('page')}>
             <Helmet title="Page Page" />
             <div>
-                <Campaign1 />
+                <Hero />
             </div>
             </div>
         );

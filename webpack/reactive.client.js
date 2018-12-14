@@ -10,7 +10,7 @@ module.exports = merge(common, {
 	mode: 'production',
 	entry: {
 		main: path.resolve(__dirname, '../source/main.js'),
-		reactive_client: path.resolve(__dirname, '../source/reactive.js')
+		reactive_client: path.resolve(__dirname, '../src/reactive.js')
 	},
 	module: {
 		rules: [{

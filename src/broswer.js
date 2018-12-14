@@ -2,6 +2,7 @@ import React from 'react';
 import Loadable from 'react-loadable';
 import { BroswerRender } from 'app/render';
 import { routes, popups, drawers } from './routes';
+import '@atlaskit/css-reset';
 import './styles/app.scss';
 
 const render = (dom_id, context, props) => {

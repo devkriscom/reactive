@@ -6,7 +6,11 @@
 	"main": "source/script/app.js",
 	"dependencies": {
 		"@atlaskit/avatar": "^14.1.6",
+		"@atlaskit/breadcrumbs": "^6.0.14",
 		"@atlaskit/checkbox": "^5.0.9",
+		"@atlaskit/comment": "^6.0.30",
+		"@atlaskit/conversation": "^11.1.4",
+		"@atlaskit/css-reset": "^3.0.5",
 		"@atlaskit/drawer": "^2.6.1",
 		"@atlaskit/dropdown-menu": "^6.1.24",
 		"@atlaskit/field-text": "^7.0.18",
@@ -14,6 +18,7 @@
 		"@atlaskit/global-search": "^5.13.5",
 		"@atlaskit/icon": "^15.0.2",
 		"@atlaskit/inline-dialog": "^9.0.12",
+		"@atlaskit/media-core": "^24.5.3",
 		"@atlaskit/modal-dialog": "^7.1.0",
 		"@atlaskit/pagination": "^9.0.1",
 		"@atlaskit/popper": "^0.3.5",
@@ -56,7 +61,7 @@
 		"redux-logger": "^3.0.6",
 		"redux-saga": "^0.16.2",
 		"reselect": "^4.0.0",
-		"styled-components": "^4.1.2",
+		"styled-components": "^3.2.6",
 		"whatwg-fetch": "^3.0.0"
 	},
 	"devDependencies": {

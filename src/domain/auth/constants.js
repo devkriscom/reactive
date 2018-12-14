@@ -1,2 +1,0 @@
-export const FETCH_POSTS = 'POSTS/FETCH_POSTS';
-export const FETCHED_POSTS = 'POSTS/FETCHED_POSTS'

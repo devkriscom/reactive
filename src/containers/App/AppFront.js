@@ -1,23 +1,22 @@
 import React, { Component, Fragment, Suspense } from 'react';
-import { withSaga, withReducer, openModal } from 'app/service';
+import { withSaga, withReducer, openModal, changeLocale } from 'app/service';
 import { bindActionCreators, compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
-import { DropdownSwitch } from 'components/i18n/SwitchLocale';
-import { getConfig, getLocales, getLocale, getMenuByName } from 'app/selectors';
-import { changeLocale } from 'app/service';
-import { DefaultLayout } from 'components/Layout';
-import { FooterWrap } from 'components/Footer';
-import { HeaderWrap } from 'components/Header';
-import { Navbar } from 'components/Navbar/Navbar';
+import { SelectLanguage } from 'common/Language';
+import { DefaultLayout } from 'common/Layout/Layout';
+import { FooterWrap } from 'common/Layout/Footer';
+import { HeaderWrap } from 'common/Layout/Header';
+import { Navbar } from 'common/Layout/Navbar';
 import logo from 'static/img/logo.svg';
-
+import { getConfig, getLocales, getLocale, getMenuByName } from 'app/selectors';
+ 
 export class App extends React.Component {
 
     languages = () => {
-        return (<DropdownSwitch changeLocale={this.updateLocale} locale={({ label, value }) => {
+        return (<SelectLanguage changeLocale={this.updateLocale} locale={({ label, value }) => {
             this.props.changeLocale(value);
         }} {...this.props} />);
     }
@@ -35,25 +34,23 @@ export class App extends React.Component {
     }
 
     render() {
-        
-        return (<DefaultLayout className="app">
-            <HeaderWrap>
-                <Navbar items={this.props.main_menu} edges={[this.brand()]} shortcuts={[this.languages(), this.signinBtn(), this.signupBtn()]} />
-            </HeaderWrap>
-            <div className="app-body">
-                <main className="main">
+        return (
+            <DefaultLayout>
+                <HeaderWrap>
+                    <Navbar items={this.props.main_menu} edges={[this.brand()]} shortcuts={[this.languages(), this.signinBtn(), this.signupBtn()]} />
+                </HeaderWrap>
+                <main className="app-main">
                     {this.props.children}
                 </main>
-            </div>
-            <FooterWrap>
-              <span>
-                <a href="https://reactive.io">Reactive</a>
-                {' '}
-                &copy; 2018 ReactiveLabs.
-            </span>
-        </FooterWrap>
-        </DefaultLayout>
-        );
+                <FooterWrap>
+                  <span>
+                    <a href="https://reactive.io">Reactive</a>
+                    {' '}
+                    &copy; 2018 ReactiveLabs.
+                </span>
+            </FooterWrap>
+            </DefaultLayout>
+            );
     }
 }
 
@@ -64,10 +61,9 @@ export default compose(connect(
         locale: getLocale,
         main_menu: getMenuByName('main')
     }),
-    (dispatch) => {
-        return bindActionCreators({
+    (dispatch) => bindActionCreators({
           openModal,
           changeLocale
-      }, dispatch);
-    })
+      }, dispatch)
+    )
 )(App);

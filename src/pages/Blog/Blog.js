@@ -1,94 +1,119 @@
 import React, { Component, Fragment } from 'react';
-import { bindActionCreators, compose } from 'redux';
-import { createStructuredSelector } from 'reselect';
-import { withSaga, withReducer, withModal, withDrawer, openDrawer } from 'app/service';
+import { compose } from 'redux';
 import { FormattedMessage } from 'react-intl';
-import { connect } from 'react-redux';
+import { withSaga, withReducer, withModal, withDrawer, openDrawer, withConnect } from 'app/service';
 import classNames from 'classnames';
 import Helmet from 'react-helmet';
-import { createPostsReducer, createTopicsReducer, createTagsReducer } from 'domain/content/reducers';
-import { postsSaga } from 'domain/content/sagas';
+import { Collection, Filter } from 'common/Collection';
+import { contentSaga } from 'domain/content/sagas';
+import { postAggregateReducer, tagAggregateReducer, topicAggregateReducer } from 'domain/content/reducers';
 import { fetchPosts, fetchTopics, fetchTags } from 'domain/content/actions';
-import { PostFeed } from 'domain/content/components/PostFeed';
-import { PostList } from 'domain/content/components/PostWidget';
-import { PostFilter, PostPagination, PostToolbar } from 'domain/content/components/PostCollection';
-import LoginModal from 'containers/Auth/LoginModal';
-import {
-    selectPosts, selectPopulars, selectTopics, selectTags,
-} from './selectors';
+import { PostFeed, PostFeedMini } from 'domain/content/components/PostFeed';
+import { selectPosts, selectPopulars, selectTopics, selectTags } from './selectors';
+import TextField from '@atlaskit/field-text';
+import Button from '@atlaskit/button';
 
 export class Page extends Component {
-  componentDidMount = () => {
-      this.props.fetchPosts('blog_posts', {
-          per_page: 6,
-      });
 
-      this.props.fetchPosts('blog_populars', {
-          per_page: 2,
-      });
+    componentDidMount = () => {
+        this.props.fetchPosts('blogPosts', {
+            per_page: 6,
+        });
 
-      this.props.fetchTopics('blog_topics', {
-          per_page: 3,
-      });
+        this.props.fetchPosts('blogPopulars', {
+            per_page: 2,
+        });
 
-      this.props.fetchTags('blog_tags', {
-          per_page: 3,
-      });
-  }
+        this.props.fetchTopics('blogTopics', {
+            per_page: 3,
+        });
 
-  render() {
+        this.props.fetchTags('blogTags', {
+            per_page: 3,
+        });
+    }
+
+    onUpdateFilter = () => {
+
+    }
+
+    onUpdateSorter = () => {
+
+    }
+
+    onUpdateView = () => {
+
+    }
+
+    render() {
       return (
         <div className={classNames('page')}>
-            <Helmet title="Blog Page" />
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-9">
-                        <PostToolbar />
-                        <div className="row">
-                          {this.props.posts.map((post, key) => {
-                              return (<div className="col-md-4" key={key}><PostFeed {...post} /></div>);
-                              })}
-                      </div>
-                      <PostPagination />
-                  </div>
-                  <div className="col-md-3">
-                    <PostFilter />
+          <Helmet title="Blog Page" />
+          <div className="container">
+              <div className="row">
+                <div className="col-md-9">
+                    <Collection
+                        className="row" 
+                        items={this.props.posts} 
+                        pagination={null}
+                        templates={{
+                            default: {
+                                icon: 'grid',
+                                component: PostFeed,
+                                className: 'col-md-4'
+                            },
+                            list: {
+                                icon: 'list',
+                                component: PostFeed,
+                                className: 'col-md-12'
+                            },
+                            colmun: {
+                                icon: '3column',
+                                component: PostFeed,
+                                className: 'col-md-6'
+                            }
+                        }
+                        } 
+                    />
+                </div>
+                <div className="col-md-3">
+                    <Filter
+                        fields={[<TextField />]}
+                        buttons={[(<Button type="submit" appearance="primary">Search</Button>)]}
+                    />
                     <div className="sidebar">
-                      <div className="widget widget-sidebar">
-                          <h6 className="widget-title">Search</h6>
-                          <form className="search" target="#" method="GET">
-                              <div className="field flex">
-                                  <input type="text" className="form-control" name="s" placeholder="Search" />
-                                  <button className="btn" type="submit">
-                                      <i className="mdi mdi-search" />
-                                      SEARCH
-                                  </button>
-                                  <button type="button" onClick={() => this.props.openDrawer('testraw')}>
-                                    Open drawer
-                                </button>
+
+                        <div className="widget widget-sidebar">
+                            <h6 className="widget-title">Categories</h6>
+                            <div className="row link-color-default fs-14 lh-24">
+                                {this.props.topics.map((topic, key) => {
+                                  return (<div className="col-6" key={key}><a href="#">{topic.title}</a></div>);
+                                  })}
                             </div>
-                        </form>
-                    </div>
-                    <hr />
-                    <div className="widget widget-sidebar">
-                        <h6 className="widget-title">Categories</h6>
-                        <div className="row link-color-default fs-14 lh-24">
-                            {this.props.topics.map((topic, key) => {
-                              return (<div className="col-6" key={key}><a href="#">{topic.title}</a></div>);
-                              })}
                         </div>
-                    </div>
-                    <hr />
+                        <hr />
 
-                    <div className="widget widget-sidebar">
-                        <h6 className="widget-title">Top posts</h6>
-                        <PostList posts={this.props.populars} />
-                    </div>
-                    <hr />
+                        <div className="widget widget-sidebar">
+                            <h6 className="widget-title">Top posts</h6>
+                            <Collection
+                                className="row" 
+                                items={this.props.populars} 
+                                pagination={null}
+                                templates={{
+                                    default: {
+                                        icon: 'grid',
+                                        component: PostFeedMini,
+                                        className: 'col-md-12'
+                                    }
+                                }
+                                } 
+                            />
+                        </div>
+                        <hr />
 
-                    <div className="widget widget-sidebar">
-                        <h6 className="widget-title">Tags</h6>
-                        <div className="gap-multiline-items-1">
+                        <div className="widget widget-sidebar">
+                          <h6 className="widget-title">Tags</h6>
+                          <div className="gap-multiline-items-1">
                             {this.props.tags.map((tag, key) => {
                               return (<a className="badge badge-secondary" key={key} href="#">{tag.title}</a>);
                               })}
@@ -110,25 +135,20 @@ export class Page extends Component {
 
 
 export default compose(
-    withModal({ key: 'signup', modal: LoginModal }),
-    withDrawer({ key: 'testraw', drawer: LoginModal }),
-    withReducer({ key: 'blog_posts', reducer: createPostsReducer('blog_posts') }),
-    withReducer({ key: 'blog_populars', reducer: createPostsReducer('blog_populars') }),
-    withReducer({ key: 'blog_tags', reducer: createTagsReducer('blog_tags') }),
-    withReducer({ key: 'blog_topics', reducer: createTopicsReducer('blog_topics') }),
-    withSaga({ key: 'blog', saga: postsSaga }),
-    connect(createStructuredSelector({
+    withSaga({ key: 'content', saga: contentSaga }),
+    withReducer({ key: 'blogPosts', reducer: postAggregateReducer('blogPosts') }),
+    withReducer({ key: 'blogPopulars', reducer: postAggregateReducer('blogPopulars') }),
+    withReducer({ key: 'blogTags', reducer: tagAggregateReducer('blogTags') }),
+    withReducer({ key: 'blogTopics', reducer: topicAggregateReducer('blogTopics') }),
+    withConnect({
         posts: selectPosts,
         populars: selectPopulars,
         topics: selectTopics,
         tags: selectTags,
-    }),
-    (dispatch) => {
-        return bindActionCreators({
-            fetchPosts,
-            fetchTopics,
-            fetchTags,
-            openDrawer,
-        }, dispatch);
-    }),
+    }, {
+        fetchPosts,
+        fetchTopics,
+        fetchTags,
+        openDrawer,
+    })
     )(Page);

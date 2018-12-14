@@ -6,7 +6,7 @@ var common = require('./config.js');
 var indexDir = path.join(__dirname, '../');
 module.exports = merge(common, {
 	entry: {
-		client: path.resolve(__dirname, '../source/broswer.js')
+		client: path.resolve(__dirname, '../src/reactive.js')
 	},
 	devServer: {
 		contentBase: indexDir,

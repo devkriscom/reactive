@@ -1,14 +1,16 @@
 import { createSelector } from 'reselect';
 
-const getMain = state => state.get('blog_posts');
+const postCollection = state => state.get('blogPosts');
+
 export const selectPosts = createSelector(
-    [getMain],
-    (main) => {
-    	return main.get('posts').toJS()
+    [postCollection],
+    (collection) => {
+        console.log(collection);
+    	return collection.get('posts').toJS()
     }
 );
 
-const getPopular = state => state.get('blog_populars');
+const getPopular = state => state.get('blogPopulars');
 export const selectPopulars = createSelector(
     [getPopular],
     (main) => {
@@ -16,7 +18,7 @@ export const selectPopulars = createSelector(
     }
 );
 
-const getTopic = state => state.get('blog_topics');
+const getTopic = state => state.get('blogTopics');
 export const selectTopics = createSelector(
     [getTopic],
     (topic) => {
@@ -24,7 +26,7 @@ export const selectTopics = createSelector(
     }
 );
 
-const getTag = state => state.get('blog_tags');
+const getTag = state => state.get('blogTags');
 export const selectTags = createSelector(
     [getTag],
     (tag) => {

@@ -196,9 +196,8 @@ export class I18nProvider extends React.Component<Props> {
                 <div>
                   {drawerRender}
                   <ModalView isModalOpen={isModalOpen} modalView={modalView} onClose={() => this.onClose()} />
-                  <div> {React.Children.only(this.props.children)}</div>
+                  {React.Children.only(this.props.children)}
               </div>
-
               </IntlProvider>
               );
     }

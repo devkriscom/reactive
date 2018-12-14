@@ -1,15 +1,17 @@
 @import "variables";
 @import "libs/bootstrap/bootstrap";
 @import "function";
-
 /*****************************************
 * Base
 *****************************************/
-img {
-	max-width: 100%;
-}
+@import "base/reset";
 
 /*****************************************
 * Common
 *****************************************/
 @import "common/themes";
+
+/*****************************************
+* Elements
+*****************************************/
+@import "elements/collection";
