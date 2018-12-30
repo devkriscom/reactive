@@ -1,6 +1,7 @@
+import React from 'react';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { fromJS } from 'immutable';
+import { fromJS, Map, List } from 'immutable';
 import createBrowserHistory from 'history/createBrowserHistory';
 import createMemoryHistory from 'history/createMemoryHistory';
 import createSagaMiddleware from 'redux-saga';
@@ -9,12 +10,15 @@ import reducers from './reducers';
 import configs from './configs/config.json';
 import menus from './configs/menus.json';
 import i18n from './configs/i18n.json';
+import {
+    Header, Footer, Leftside, Rightside,
+} from './component';
 
 const data = (props: object) => {
     return merge({
         config: configs,
         menu: menus,
-        i18n: i18n
+        i18n,
     }, props);
 };
 
@@ -38,7 +42,6 @@ export const historyFactory = (context, makeStatic) => {
 };
 
 export default function storeFactory(context, initialStates, makeStatic) {
-
     const sagaMiddleware = createSagaMiddleware();
 
     const composeEnhancers = composeWithDevTools({
@@ -51,16 +54,21 @@ export default function storeFactory(context, initialStates, makeStatic) {
     };
 
     const store = createStore(reducers(), fromJS(preloadState), compose(applyMiddleware(sagaMiddleware), composeEnhancers));
+    store.broker = sagaMiddleware.run;
+    store.design = Map({
+        header: <Header />,
+        footer: <Footer />,
+        leftside: <Leftside />,
+        rightside: <Rightside />,
+    });
 
-    store.sagaBroker = sagaMiddleware.run;
+    store.modal = Map({});
+
+    store.drawer = Map({});
 
     store.loadedReducers = {};
 
     store.loadedSagas = {};
-
-    store.modals = {};
-
-    store.drawers = {};
 
     if (module.hot) {
         module.hot.accept('./reducers', () => {

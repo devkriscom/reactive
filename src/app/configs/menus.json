@@ -19,6 +19,16 @@
 			"id" 	: "shop",
 			"path"	: "/shop",
 			"label"	: "shop"
+		},
+		{
+			"id" 	: "discover",
+			"path"	: "/discover",
+			"label"	: "Discover"
+		},
+		{
+			"id" 	: "admin",
+			"path"	: "/admin",
+			"label"	: "Dashboard"
 		}
 	]
 }

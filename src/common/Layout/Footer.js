@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import cn from 'classnames';
 import './Footer.scss';
 
 
 export class FooterWrap extends Component {
-
     static defaultProps = {
         tag: 'footer',
         fixed: false,
@@ -32,13 +31,12 @@ export class FooterWrap extends Component {
 
         delete attributes.fixed;
 
-        const classes = classNames(className, 'app-footer');
+        const fragment = cn(className, 'app-footer');
 
         return (
-          <Tag className={classes} {...attributes}>
+          <Tag className={fragment} {...attributes}>
               {children}
-              </Tag>
-              );
+            </Tag>
+        );
     }
 }
-

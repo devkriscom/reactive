@@ -30,7 +30,7 @@ HeaderDropdown.propTypes = {
     children: PropTypes.node,
     direction: PropTypes.string,
 };
-;
+
 HeaderDropdown.defaultProps = {
     direction: 'down',
 };

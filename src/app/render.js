@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { addLocaleData } from 'react-intl';
-import { reduce } from 'lodash';
-import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { BrowserRouter, StaticRouter } from 'react-router-dom';
+import { renderToString } from 'react-dom/server';
+import { addLocaleData } from 'react-intl';
+import { reduce } from 'lodash';
 import storeFactory from './storeFactory';
 import { locales } from './configs/i18n.json';
 import AppProvider from './provider';
 
-const translationMessages = reduce(locales, (result, locale) => {
+const i18nList = reduce(locales, (result, locale) => {
     const obj = result;
 
     const { code } = locale;
@@ -18,15 +18,13 @@ const translationMessages = reduce(locales, (result, locale) => {
 
     try {
         data = require(`./locales/${code}.json`);
-    } catch (e) {
-    // do nothing
-    }
+    } catch (e) {}
 
     obj[code] = data;
 
     try {
-        const localeData = require(`react-intl/locale-data/${code}`);
-        addLocaleData(localeData);
+        // const localeData = require(`react-intl/locale-data/${code}`);
+        // addLocaleData(localeData);
     } catch (error) {
         console.warn(`Upsss "${code}" is not supported by "react-intl" module.`);
     }
@@ -34,45 +32,45 @@ const translationMessages = reduce(locales, (result, locale) => {
     return obj;
 }, {});
 
-export const BroswerRender = (dom_id, context, props, routes, modals, drawers, translations) => {
+export const BroswerRender = (dom_id, context, props, router, translations) => {
     const store = storeFactory(context, props);
 
     const domId = dom_id || 'react-view';
 
     ReactDOM.hydrate(
       <Provider store={store}>
-          <AppProvider messages={translationMessages} modals={modals} drawers={drawers}>
-              <BrowserRouter {...context}>
-              {routes(store)}
-                </BrowserRouter>
-            </AppProvider>
-        </Provider>,
-        document.getElementById(domId),
+        <AppProvider messages={i18nList}>
+          <BrowserRouter {...context}>
+            {router(store)}
+        </BrowserRouter>
+    </AppProvider>
+    </Provider>,
+    document.getElementById(domId),
     );
 };
 
-export const ServerRender = (context, props, routes, modals, drawers, translations) => {
+export const ServerRender = (context, props, router, translations) => {
     const store = storeFactory(context, props, true);
     return renderToString(
       <Provider store={store}>
-          <AppProvider messages={translationMessages} modals={modals} drawers={drawers}>
+          <AppProvider messages={i18nList}>
               <StaticRouter {...context}>
-                  {routes(store)}
-                </StaticRouter>
-            </AppProvider>
+                {router(store)}
+            </StaticRouter>
+        </AppProvider>
         </Provider>,
-    );
+        );
 };
 
-export const StaticRender = (context, props, routes, modals, drawers, translations) => {
+export const StaticRender = (context, props, router, translations) => {
     const store = storeFactory(context, props, true);
     return renderToString(
       <Provider store={store}>
-          <AppProvider messages={translationMessages} modals={modals} drawers={drawers}>
-              <StaticRouter {...context}>
-                  {routes(store)}
-                </StaticRouter>
-            </AppProvider>
-        </Provider>,
-    );
+          <AppProvider messages={i18nList}>
+            <StaticRouter {...context}>
+              {router(store)}
+          </StaticRouter>
+      </AppProvider>
+      </Provider>,
+      );
 };

@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const merge = require('webpack-merge');
 const path = require('path');
-
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var common = require('./config.js');
 var indexDir = path.join(__dirname, '../');
 module.exports = merge(common, {
@@ -26,6 +26,7 @@ module.exports = merge(common, {
 		}]
 	},
 	plugins: [
+	new BundleAnalyzerPlugin(),
 	new webpack.DefinePlugin({
 		'process.env.BROWSER': true
 	})]

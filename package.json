@@ -15,11 +15,13 @@
 		"@atlaskit/dropdown-menu": "^6.1.24",
 		"@atlaskit/field-text": "^7.0.18",
 		"@atlaskit/form": "^4.0.21",
+		"@atlaskit/global-navigation": "^5.3.8",
 		"@atlaskit/global-search": "^5.13.5",
 		"@atlaskit/icon": "^15.0.2",
 		"@atlaskit/inline-dialog": "^9.0.12",
 		"@atlaskit/media-core": "^24.5.3",
 		"@atlaskit/modal-dialog": "^7.1.0",
+		"@atlaskit/navigation-next": "^4.0.10",
 		"@atlaskit/pagination": "^9.0.1",
 		"@atlaskit/popper": "^0.3.5",
 		"@atlaskit/radio": "^0.4.4",
@@ -60,6 +62,7 @@
 		"redux-immutable": "^4.0.0",
 		"redux-logger": "^3.0.6",
 		"redux-saga": "^0.16.2",
+		"regenerator-runtime": "^0.13.1",
 		"reselect": "^4.0.0",
 		"styled-components": "^3.2.6",
 		"whatwg-fetch": "^3.0.0"
@@ -124,8 +127,8 @@
 		"webpack-merge": "^4.1.4"
 	},
 	"scripts": {
-		"lint": "eslint --ext .js,.jsx reactjs",
-		"lintf": "eslint --ext .js,.jsx reactjs --fix",
+		"lint": "eslint --ext .js,.jsx src",
+		"lintf": "eslint --ext .js,.jsx src --fix",
 		"dev": "./node_modules/.bin/webpack-dev-server --config ./webpack/dev.config.js",
 		"node-dev": "webpack --config ./webpack/node.client.js --watch && webpack --config ./webpack/node.server.js --watch",
 		"node-build": "webpack --config ./webpack/node.client.js && webpack --config ./webpack/node.server.js",

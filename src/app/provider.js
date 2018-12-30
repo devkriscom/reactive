@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import merge from 'merge';
 import PropTypes from 'prop-types';
 import { fromJS, List, Map } from 'immutable';
@@ -9,14 +9,9 @@ import { IntlProvider } from 'react-intl';
 import { defaultsDeep } from 'lodash';
 import { createStructuredSelector } from 'reselect';
 import invariant from 'invariant';
-import Button from '@atlaskit/button';
-import CrossIcon from '@atlaskit/icon/glyph/cross';
-import Modal, { ModalHeader, ModalTransition } from '@atlaskit/modal-dialog';
-import Drawer from '@atlaskit/drawer';
 import {
     getLocale, getNextModal, getLastModal, getNextDrawer, getLastDrawer,
 } from './selectors';
-
 
 type Props = {
     children: React.element,
@@ -26,34 +21,6 @@ type Props = {
     showKeyline: boolean
 }
 
-const ModalView = ({
-    isModalOpen, modalView, onClose,
-}: Props) => {
-    return (
-      <ModalTransition>
-        {isModalOpen && (
-            <Modal
-              id="mainmodal" header={({ onClose, showKeyline }: Props) => {
-                return (<ModalHeader showKeyline={showKeyline}><Button onClick={onClose}><CrossIcon label="Close Modal" size="small" /></Button></ModalHeader>);
-                }} onClose={onClose}
-                >
-                {React.createElement(modalView)}
-                </Modal>
-                )
-        }
-        </ModalTransition>
-        );
-};
-
-const DrawerView = ({
-    isDrawerOpen, drawerView, onClose, onComplete, size = 'wide',
-}: Props) => {
-    return (
-        <Drawer onClose={onClose} onCloseComplete={onComplete} isOpen={isDrawerOpen} width={size}>
-            {React.createElement(drawerView)}
-            </Drawer>
-            );
-};
 
 export class I18nProvider extends React.Component<Props> {
     static defaultProps = {
@@ -67,14 +34,16 @@ export class I18nProvider extends React.Component<Props> {
     }
 
     state = {
+        design: null,
         lastModal: null,
         nextModal: false,
         isModalOpen: false,
         lastDrawer: null,
         nextDrawer: false,
         isDrawerOpen: false,
-        modalManager: Map(this.props.modals()),
-        drawerManager: Map(this.props.drawers()),
+        design: this.context.store.design,
+        modal: this.context.store.modal,
+        drawer: this.context.store.drawer,
     }
 
     static contextTypes = {
@@ -82,38 +51,12 @@ export class I18nProvider extends React.Component<Props> {
     };
 
     componentDidMount() {
-
-        let { modalManager, drawerManager } = this.state;
-        const { modals, drawers } = this.context.store;
-
-        const oldModals = modalManager.toObject();
-        const newModals = {};
-        if(typeof modals === 'object') {
-            Object.keys(modals).map(name => {
-                const modalData = modals[name];
-                const {key, modal, mode} = modalData;
-                if(!modalManager.has(name)){
-                    newModals[name] = modal;
-                }
-            })
-        }
-
-        const oldDrawers = drawerManager.toObject();
-        const newDrawers = {};
-        if(typeof drawers === 'object') {
-            Object.keys(drawers).map(name => {
-                const drawerData = drawers[name];
-                const {key, drawer, mode} = drawerData;
-                if(!drawerManager.has(name)){
-                    newDrawers[name] = drawer;
-                }
-            })
-        }
-
+        const { design, modal, drawer } = this.context.store;
         this.setState({
-            modalManager: Map(merge(oldModals, newModals)),
-            drawerManager: Map(merge(oldDrawers, newDrawers))
-        })
+            design,
+            modal,
+            drawer,
+        });
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -126,9 +69,7 @@ export class I18nProvider extends React.Component<Props> {
         } = state;
 
         const states = {};
-            /**
-             * modals
-             */
+
         if (nextModalProp && !isModalOpen) {
             states.nextModal = nextModalProp;
             states.isModalOpen = true;
@@ -173,33 +114,27 @@ export class I18nProvider extends React.Component<Props> {
     render() {
         const messages = defaultsDeep(this.props.messages[this.props.locale], this.props.messages.en);
 
-        let {
-            isModalOpen, nextModal, modalManager, isDrawerOpen, nextDrawer, drawerManager,
+        const {
+            isModalOpen, nextModal, isDrawerOpen, nextDrawer,
         } = this.state;
 
-        const modalView = this.state.modalManager.get(nextModal);
 
-        if (!modalView) {
-            isModalOpen = false;
-        }
-
-        let drawerRender = null;
-        if (nextDrawer && isDrawerOpen) {
-            const drawerView = this.state.drawerManager.get(nextDrawer);
-            if (drawerView) {
-                drawerRender = (<DrawerView isDrawerOpen={isDrawerOpen} drawerView={drawerView} onClose={() => this.onDrawerClose()} />);
-            }
-        }
-
-        return (
-            <IntlProvider locale={this.props.locale} key={this.props.locale} defaultLocale="en" messages={messages}>
-                <div>
-                  {drawerRender}
-                  <ModalView isModalOpen={isModalOpen} modalView={modalView} onClose={() => this.onClose()} />
-                  {React.Children.only(this.props.children)}
-              </div>
-              </IntlProvider>
-              );
+        const { design } = this.state;
+        const Header = design.get('header');
+        const Footer = design.get('footer');
+        const Leftside = design.get('leftside');
+        const Rightside = design.get('rightside');
+        return (<IntlProvider locale={this.props.locale} key={this.props.locale} defaultLocale="en" messages={messages}>
+            <Fragment>
+                {Leftside}
+                <div className="app">
+                    {Header}
+                    {React.Children.only(this.props.children)}
+                    {Footer}
+                </div>
+                {Rightside}
+            </Fragment>
+            </IntlProvider>);
     }
 }
 
@@ -211,5 +146,4 @@ export default compose(connect(
         lastDrawerProp: getLastDrawer,
         locale: getLocale,
     }),
-    ),
-)(I18nProvider);
+    ))(I18nProvider);

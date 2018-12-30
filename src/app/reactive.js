@@ -72,27 +72,28 @@ const broswerInit = () => {
 
     if (components.length > 0) {
         for (let i = 0; i < components.length; i += 1) {
-            const component = components[i];
             const dom_id = component.getAttribute('data-dom-id');
-            const states = JSON.parse(component.textContent);
+            const component = components[i];
+            const props = JSON.parse(component.textContent);
 
             try {
                 const domNode = document.getElementById(dom_id);
                 if (domNode) {
                     const contextEl = document.getElementById(`context-${dom_id}`);
+
                     const context = contextEl ? JSON.parse(contextEl.textContent) : null;
 
                     if (context.location && context.static) {
                         const componentObj = loadStatic();
                         const { concrete, executable } = componentObj;
                         if (executable) {
-                            concrete(dom_id, context, states);
+                            concrete(dom_id, context, props);
                         }
                     } else {
                         const componentObj = loadBroswer();
                         const { concrete, executable } = componentObj;
                         if (executable) {
-                            concrete(dom_id, context, states);
+                            concrete(dom_id, context, props);
                         }
                     }
                 }
@@ -130,20 +131,22 @@ dock.Reactive = {
         saveStatic({ concrete: component, executable });
     },
     render(options) {
-        const { states, context } = options;
+        const { props, context } = options;
         let html = '';
+
         try {
             const componentObj = loadServer();
             const { concrete, executable } = componentObj;
 
             if (executable) {
-                html = concrete(context, states);
+                html = concrete(context, props);
             } else {
                 throw new Error('\Detected a renderer while server rendering component');
             }
         } catch (e) {
             html = writeException(e, true);
         }
+
         return JSON.stringify({
             html,
         });

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 import ClickOutHandler from 'react-onclickout';
 import './Sidebar.scss';
@@ -83,12 +83,12 @@ class Sidebar extends Component {
         delete attributes.isOpen;
         delete attributes.staticContext;
 
-        const classes = classNames(className, 'sidebar');
+        const fragment = cn(className, 'sidebar');
 
         // sidebar-nav root
         return (
           <ClickOutHandler onClickOut={(e) => { this.onClickOut(e); }}>
-              <Tag className={classes} {...attributes}>
+              <Tag className={fragment} {...attributes}>
                   {children}
                 </Tag>
             </ClickOutHandler>

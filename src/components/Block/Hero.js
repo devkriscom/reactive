@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
-import classNames from 'classnames';
+import cn from 'classnames';
 import './Hero.scss';
 
 type Props = {
@@ -23,36 +23,35 @@ const Campaign = ({
     heading = 'Professional Online Courses Platform',
     content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
     image = 'http://www.inventheme.com/themeforest/appway/appway/static/img/zone-3.svg',
-    link1 = "#link1",
-    link2 = "#link2"
+    link1 = '#link1',
+    link2 = '#link2',
 }: Props) => {
 
-    const classes = classNames('campaign-1', className, theme);
-
-    const container = classNames('inner', wrapper);
+    const fragment = cn('campaign-1', className, theme);
+    const container = cn('inner', wrapper);
 
     return (<React.Fragment>
-        <section className={classes}>
+        <section className={fragment}>
             <div className={container}>
-                <div className="row align-items-center">
-                    <div className="col-md-5">
-                        <div className="block-content text-white">
-                            <FormattedHTMLMessage id="campaign-1.label" defaultMessage={'{label}'} values={{ label }} tagName="label"/>
-                            <FormattedHTMLMessage id="campaign-1.heading" defaultMessage={'{heading}'} values={{ heading }} tagName="h1" />
-                            <FormattedHTMLMessage id="campaign-1.content" defaultMessage={'{content}'} values={{ content }} tagName="p" />
-                            <div className="btn-group">
-                                <FormattedHTMLMessage id="campaign-1.button" defaultMessage={'<a href="{link1}" class="btn _outline">Free Trial</a> <a href="{link2}" class="btn _outline">Learn More</a>'} values={{ link1: link1, link2: link2 }} />
-                            </div>
+              <div className="row align-items-center">
+                <div className="col-md-5">
+                    <div className="block-content text-white">
+                        <FormattedHTMLMessage id="campaign-1.label" defaultMessage={'{label}'} values={{ label }} tagName="label" />
+                        <FormattedHTMLMessage id="campaign-1.heading" defaultMessage={'{heading}'} values={{ heading }} tagName="h1" />
+                        <FormattedHTMLMessage id="campaign-1.content" defaultMessage={'{content}'} values={{ content }} tagName="p" />
+                        <div className="btn-group">
+                            <FormattedHTMLMessage id="campaign-1.button" defaultMessage={'<a href="{link1}" class="btn _outline">Free Trial</a> <a href="{link2}" class="btn _outline">Learn More</a>'} values={{ link1, link2 }} />
                         </div>
                     </div>
-                    <div className="col-md-7">
-                        <img src={image} />
-                    </div>
+                </div>
+                <div className="col-md-7">
+                    <img src={image} />
                 </div>
             </div>
-        </section>
-        </React.Fragment>
-        );
+        </div>
+    </section>
+    </React.Fragment>
+    );
 };
 
 

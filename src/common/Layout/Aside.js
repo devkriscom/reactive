@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import cn from 'classnames';
 import './Aside.scss';
 
 const sidebarCssClasses = [
@@ -73,10 +73,10 @@ class AsideWrap extends Component {
         delete attributes.offCanvas;
         delete attributes.isOpen;
 
-        const classes = classNames(className, 'aside-menu');
+        const fragment = cn(className, 'aside-menu');
 
         return (
-          <Tag {...attributes} className={classes}>
+          <Tag {...attributes} className={fragment}>
               {children}
             </Tag>
         );

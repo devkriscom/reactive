@@ -1,6 +1,4 @@
 @import "~styles/variables";
-@import "~styles/function";
-
 /*****************************************
 * Variables
 *****************************************/
@@ -8,13 +6,11 @@ $navbar-color:                        #333 !default;
 $navbar-hover-color:                  #333 !default;
 $navbar-active-color:                 #333 !default;
 $navbar-disabled-color:               #333 !default;
-$navbar-height:                       55px !default;
+$navbar-height:                       auto !default;
 $navbar-bg:                           #fff !default;
 $navbar-brand-width:                  155px !default;
 $navbar-brand-bg:                     transparent !default;
 $navbar-toggler-padding-y:			  15px !default;
-$navbar-toggler-icon:                 str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
-$navbar-toggler-icon-hover:           str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
 $navbar-brand-width:                  155px !default;
 $navbar-brand-bg:                     transparent !default;
 $navbar-brand-border:                 0 !default;
@@ -41,7 +37,6 @@ $navbar-brand-minimized-border:       $navbar-brand-border !default;
 		height: $navbar-height;
 		padding: 0;
 		margin-right: 0;
-		background-color: $navbar-brand-bg;
 		.navbar-brand-minimized {
 			display: none;
 		}
@@ -51,14 +46,11 @@ $navbar-brand-minimized-border:       $navbar-brand-border !default;
 		min-width: 50px;
 		padding: $navbar-toggler-padding-y 0;
 		color: #333;
-		&:hover .navbar-toggler-icon {
-			background-image: $navbar-toggler-icon-hover;
-		}
+		
 	}
 
 	.navbar-toggler-icon {
 		height: 23px;
-		background-image: $navbar-toggler-icon;
 	}
 
 	.navbar-nav {

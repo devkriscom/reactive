@@ -4,15 +4,14 @@ import { createStructuredSelector } from 'reselect';
 import { withSaga, withReducer } from 'app/service';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
+import cn from 'classnames';
 
 type Props = {}
 
 export class LoginModal extends Component<Props> {
-
-	render() {
-		return (<div>modal test</div>);
-	}
+    render() {
+        return (<div>modal test</div>);
+    }
 }
 
 export default compose(

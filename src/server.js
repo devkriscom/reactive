@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Loadable from 'react-loadable';
 import { Provider } from 'react-redux';
-import { StaticRouter as Router } from "react-router-dom";
+import { StaticRouter as Router } from 'react-router-dom';
 
 import path from 'path';
 import logger from 'morgan';
@@ -24,13 +24,11 @@ app.use(favicon(path.resolve(process.cwd(), 'public/favicon.ico')));
 app.use(express.static(path.resolve(process.cwd(), 'public')));
 
 app.get('*', (req, res) => {
-
     const history = historyFactory();
 
     const store = storeFactory(history);
 
     const loadBranchData = (): Promise<any> => {
-
         const branch = matchRoutes(routes, req.path);
 
         const promises = branch.map(({ route, match }) => {
@@ -52,11 +50,9 @@ app.get('*', (req, res) => {
             const initialState = store.getState();
 
             res.status(status).send(renderServer(staticContext, initialState));
-
         } catch (err) {
             res.status(404).send('Not Found :(');
             console.error(chalk.red(`==> 😭  Rendering routes error: ${err}`));
         }
-
     })();
 });

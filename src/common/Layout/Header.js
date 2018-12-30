@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import cn from 'classnames';
 import './Header.scss';
 
 
-
 export class HeaderWrap extends Component {
-
     static defaultProps = {
         tag: 'header',
         fixed: false,
     }
+
     componentDidMount() {
         this.isFixed(this.props.fixed);
     }
@@ -24,15 +23,11 @@ export class HeaderWrap extends Component {
             className, children, tag: Tag, ...attributes
         } = this.props;
         delete attributes.fixed;
-        const classes = classNames(className, 'app-header');
+        const fragment = cn(className, 'app-header');
         return (
-          <Tag className={classes} {...attributes}>
+          <Tag className={fragment} {...attributes}>
               {children}
-              </Tag>
-              );
+            </Tag>
+        );
     }
 }
-
-
-
-

@@ -4,19 +4,19 @@ import { createStructuredSelector } from 'reselect';
 import { withSaga, withReducer } from 'app/service';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
+import cn from 'classnames';
 import Helmet from 'react-helmet';
 import Hero from 'components/Block/Hero';
 
 export class Page extends Component {
     render() {
         return (
-            <div className={classNames('page')}>
-            <Helmet title="Page Page" />
+            <div className={cn('page')}>
+                <Helmet title="Page Page" />
             <div>
-                <Hero />
-            </div>
-            </div>
+                  <Hero />
+                </div>
+          </div>
         );
     }
 }

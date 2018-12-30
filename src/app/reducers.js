@@ -1,12 +1,14 @@
 import { fromJS } from 'immutable';
 import { combineReducers } from 'redux-immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { CHANGE_LOCALE, MODAL_OPEN, MODAL_CLOSE, DRAWER_OPEN, DRAWER_CLOSE } from './constants';
+import {
+    CHANGE_LOCALE, MODAL_OPEN, MODAL_CLOSE, DRAWER_OPEN, DRAWER_CLOSE,
+} from './constants';
 import { getLocale, setLocale } from './utils';
 
 const routeInitialState = fromJS({
     location: null,
-}); 
+});
 
 function routeReducer(state = routeInitialState, action) {
     switch (action.type) {
@@ -17,7 +19,7 @@ function routeReducer(state = routeInitialState, action) {
     default:
         return state;
     }
-} 
+}
 
 const configState = fromJS({});
 
@@ -27,45 +29,45 @@ function configReducer(state = configState, action) {
 
 const i18nState = fromJS({
     locale: getLocale(),
-    locales: []
+    locales: [],
 });
 
 function i18nReducer(state = initialState, action) {
     switch (action.type) {
-        case CHANGE_LOCALE:
+    case CHANGE_LOCALE:
         setLocale(action.locale);
         return state.set('locale', action.locale);
-        default:
+    default:
         return state;
     }
 }
 
 const popupState = fromJS({
- 
+
 });
 
 function popupReducer(state = popupState, action) {
     switch (action.type) {
-        case MODAL_OPEN:
+    case MODAL_OPEN:
         return state.set('opened', action.modal);
-        case MODAL_CLOSE:
+    case MODAL_CLOSE:
         return state.set('closed', action.modal);
-        default:
+    default:
         return state;
     }
 }
 
 const drawerState = fromJS({
- 
+
 });
 
 function drawerReducer(state = drawerState, action) {
     switch (action.type) {
-        case DRAWER_OPEN:
+    case DRAWER_OPEN:
         return state.set('opened', action.drawer);
-        case DRAWER_CLOSE:
+    case DRAWER_CLOSE:
         return state.set('closed', action.drawer);
-        default:
+    default:
         return state;
     }
 }
